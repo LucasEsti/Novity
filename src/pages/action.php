@@ -1,10 +1,11 @@
 <?php 
-require_once __DIR__.'./../pdo/Formulaire.php';
-$form = new Formulaire();
+include __DIR__.'./../pdo/Formulaire.php';
 ?>
 
 <?php
     if ($request->isMethod('post')) {
+        $form = new Formulaire();
+        $form->save($_POST['email'], $_POST['subject'], $_POST['message']);
 ?>
     <div>
         Message envoyé:
